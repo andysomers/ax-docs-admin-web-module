@@ -1,0 +1,63 @@
+= Module settings
+
+All properties start with the `adminWebModule.` prefix.
+
+|===
+|Property |Type |Description |Default
+
+|root-path
+|`String`
+|Root path for all admin web controllers.  All mappings will be relative to this path.
+|/admin
+
+|dashboard
+|`String`
+|Path within the admin web context for the initial dashboard.
+|/
+
+|title
+|`String`
+|Name of the application to be shown in the administration UI.
+|
+
+|access-permissions
+|`String[]`
+|Set of permissions that grant access to the administration interface.
+|access administration
+
+|locale.default-locale
+|`Locale`
+|Default locale that should explicitly be set when accessing the administration interface if no specific locale selected.
+|`Locale.US`
+
+|locale.options
+|`List<Locale>`
+|List of locales that can be selected on the login page.
+|`Collections.emptyList()`
+
+|login.template
+|`String`
+|View template for the login page.
+|th/adminweb/login
+
+|login.rememberMe.enabled
+|`Boolean`
+|Should remember me be enabled (will only be the case if a key is also configured).
+|`true`
+
+|login.rememberMe.key
+|`String`
+|Key used for creating the remember me cookie.
+|
+
+|login.rememberMe.cookie
+|`String`
+|Name of the remember-me cookie.
+|rm-admin-web
+
+|login.rememberMe.tokenValiditySeconds
+|`Integer`
+|Number of seconds a remember me token should be valid.
+|_30 days_
+
+|===

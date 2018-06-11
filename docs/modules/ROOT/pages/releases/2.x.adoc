@@ -1,0 +1,26 @@
+= 2.x.x release notes
+
+[#2-1-1]
+== 2.1.1.RELEASE
+
+* Removed deprecated icon set from package and switched to new Across logo
+
+[#2-1-0]
+== 2.1.0.RELEASE
+
+* Improved styling of the default layout
+** Use of icons for Home breadcrumb, Developer tools and User context section
+** http://fontawesome.io/[FontAwesome icon set] is added to the default resources
+* The `AdminWebLayoutTemplate` now allows full <<customizing-nav-sections,customization of the navigational components>>
+* Dismissible alerts are now converted to <<toastr-notifications,temporary Toastr notifications>> instead in order to take up less visual space
+* CSRF protection now uses the `CookieCsrfTokenRepository` by default and no longer forces session creation
+* the default AdminWebModule javascript has been <<adminweb-javascript,extended to expose the root path of admin section as well as static resources>>
+* Bugfixes:
+** styling issues with top and left menu on mobile
+
+[#2-0-0]
+== 2.0.0.RELEASE
+
+* AdminWebModule now depends on https://across.foreach.be/modules/BootstrapUiModule[BootstrapUiModule]
+* the login page now provides an attribute *isLoginPage* that is accessible in the global template
+* added the <<page-content-structure,`PageContentStructure` with corresponding template>> to facilitate layouting admin pages

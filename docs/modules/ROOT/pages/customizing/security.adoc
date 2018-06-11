@@ -1,0 +1,13 @@
+= Security and permissions
+
+== Default permissions
+By default, access to the administration interface is restricted to users having the *access administration* permission.
+The allowed permissions can be specified by setting the *adminWebModule.access-permissions* property.
+
+== Remember me configuration
+You can easily enable remember me support for the administration ui by setting the correct properties.  By default
+the `TokenBasedRememberMeServices` are used, meaning the user password is encoded into the cookie value.  When using a
+local memory database during development this can be unhandy when users get reinstalled upon application start.  If
+the user password is also encoded using a random encoder (the default when using the `UserModule`) the remember me
+cookies will not work after a restart.  The solution for this to configure either a `NoOpPasswordEncoder.getInstance()`
+or a fixed password encoder in local development mode.

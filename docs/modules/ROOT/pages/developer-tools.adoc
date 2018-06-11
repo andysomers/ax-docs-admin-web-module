@@ -1,0 +1,31 @@
+[[developer-tools]]
+= Developer tools section
+
+If development mode is active on the Across context, a menu group titled *Developer tools* will get created.
+This allows other modules to register development only resources in the administration UI.
+
+The path of the menu group is */ax/developer*.
+
+.Example development controller that only gets created if development mode is active
+[source,java,indent=0]
+[subs="verbatim,attributes"]
+----
+@AdminWebController
+@ConditionalOnDevelopmentMode
+@RequiredArgsConstructor
+public class DevToolsController
+{
+	private final PageContentStructure pageContentStructure;
+
+	@EventListener
+	void registerDeveloperToolsItem( AdminMenuEvent menuEvent ) {
+		menuEvent.builder().item( DeveloperToolsMenuRegistrar.PATH + "/test", "Test controller" );
+	}
+
+	@GetMapping("/ax/developer/test")
+	public String test() {
+		pageContentStructure.setPageTitle( "Test developer tools page..." );
+		return PageContentStructure.TEMPLATE;
+	}
+}
+----

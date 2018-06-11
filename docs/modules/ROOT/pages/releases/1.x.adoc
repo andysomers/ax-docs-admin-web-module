@@ -1,0 +1,12 @@
+= 1.x.x release notes
+
+[#1-1-1]
+== 1.1.1.RELEASE
+
+* all settings are now configurable through properties with Spring configuration metadata support
+* login template now uses the `isRememberMeEnabled` attribute to determine if the remember-me checkbox should be shown
+** this is a *breaking change* for custom templates
+* a <<developer-tools,Developer tools>> menu section gets created if development mode is active
+
+=== 1.1.0.RELEASE
+Initial public release available on http://search.maven.org/[Maven central].

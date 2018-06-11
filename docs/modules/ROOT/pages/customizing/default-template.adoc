@@ -1,0 +1,12 @@
+= Default layout template
+
+All admin web controllers will use a default template named *adminWeb*.
+You can customize which template to use by modifying the `WebTemplateRegistry` bean named *adminWebTemplateRegistry*.
+You can either change the default template or simply replace the instance registered as *adminWeb*.
+
+WARNING: The login page uses the same default template as all other admin web controllers.
+This means the template should take both authorized and non-authorized authentications into account.
+
+The default template is an implementation of `AdminWebLayoutTemplate`.
+If you only want a custom view template file (eg. Thymeleaf) you can reuse the `AdminWebLayoutTemplate` class and create a new bean with custom name and template file.
+The default web resources and page structure (menus) will still be created.

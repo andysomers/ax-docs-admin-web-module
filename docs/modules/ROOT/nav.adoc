@@ -1,1 +1,23 @@
-* Creating a form
+* xref:index.adoc[Quick start]
+* xref:releases/index.adoc[Releases]
+** xref:releases/3.x.adoc[3.x]
+** xref:releases/2.x.adoc[2.x]
+** xref:releases/1.x.adoc[1.x]
+
+* xref:configuration-properties.adoc[Configuration properties]
+* xref:integration.adoc[Integration with other modules]
+
+* xref:customizing/index.adoc[Customizing Admin Web]
+** xref:customizing/security.adoc[Security & permissions]
+** xref:customizing/default-template.adoc[Default layout template]
+** xref:customizing/login-page.adoc[Login page]
+
+* xref:building/admin-web-controllers.adoc[Building an Administration UI]
+** xref:building/admin-web-controllers.adoc[Creating admin web controllers]
+** xref:building/nav-sections.adoc[Customizing the nav sections]
+** xref:building/page-content-structure.adoc[Default page structures]
+
+* xref:developer-tools.adoc[Developer tools]
+
+* xref:web-resources.adoc[Web resources]
+** xref:web-resources.adoc#admin-web-javascript[Javascript plugins]

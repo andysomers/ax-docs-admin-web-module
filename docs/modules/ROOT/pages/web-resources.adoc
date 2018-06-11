@@ -1,0 +1,54 @@
+= AdminWebModule web resources
+
+== Web resources packages
+
+tbd
+
+[#admin-web-javascript]
+== AdminWebModule javascript
+AdminWebModule registers some Javascript and exposes an `AdminWebModule` and `AcrossWebModule` global variable.
+These can be used to configure some of the default client-side behaviour settings.
+
+The necessary web resources are registered automatically by the `AdminWebLayoutTemplate`.
+If you have a custom template implementation, you probably want to register the `AdminWebWebResources` manually.
+
+=== Client-side paths
+A couple of web application paths are exposed as global javascript variables:
+
+[cols="1,4",options="header"]
+|===
+|Variable
+|Content
+
+|`AcrossWebModule.resourcePath`
+|Holds the base path for exposed web resources.
+Equivalent of `@resource:/` in a server-side link.
+
+|`AcrossWebModule.staticPath`
+|Holds the base path for the default static resources.
+Equivalent of `@static:/` in a server-side link.
+
+|`AdminWebModule.rootPath`
+|Holds the base path onto which AdminWeb UI has been mapped.
+Equivalent of `@adminWeb:/` in a server-side link.
+
+|===
+
+NOTE: The last slash (/) token will always be stripped from the exposed paths.
+Example creating a custom path: `AdminWebModule.rootPath + '/my-controller'`.
+
+[[toastr-notifications]]
+=== Toastr notifications
+By default AdminWebModule will convert all Bootstrap dismissible alerts into http://codeseven.github.io/toastr/[Toastr notifications].
+If you do not want to use Toastr at all, simply removing the javascript should be sufficient.
+If you only want to disable dismissible alert conversion, you can do so by updating the `AdminWebModule` javascript property:
+
+.Disabling Toastr notifications
+[source,html,indent=0]
+[subs="verbatim,attributes"]
+----
+<script type="text/javascript">
+// Disable Toastr notifications - ensure this block is executed after initial admin-web-module.js
+AdminWebModule.useToastrNotifications = false;
+</script>
+----

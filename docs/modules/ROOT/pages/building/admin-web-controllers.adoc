@@ -1,0 +1,47 @@
+= Admin web controllers
+
+== Registering admin controllers
+
+AdminWebModule will scan for all beans annoted with `@AdminWebController`.
+This is a replacement for the default `@Controller` annotation and marks the beans as controllers that should run under the {module-name} root path.
+
+All request mappings that the controller declares will be prefixed with the admin root path, and will be secured behind it.
+The default admin web template will be applied to the controller unless it explicitly declares a `@Template` annotation.
+
+NOTE: `@AdminWebController` also declared a Spring condition.
+Beans annotated with `@AdminWebController` will only get created if {module-name} is present.
+
+The following code snippet illustrates creating a simple admin controller:
+
+.Example creating a custom admin web controller
+[source,java,indent=0]
+[subs="verbatim,quotes,attributes"]
+----
+@AdminWebController
+@RequestMapping("/demo")
+public class DemoAdminWebController
+{
+	@RequestMapping("/page")
+	public String renderPage( Model model ) {
+	    model.addAttribute( "message", "Hello!" );
+	    return "th/myModule/admin/page";
+	}
+}
+----
+
+With the default settings, the controller in the example would be available as _/admin/demo/page.
+
+== Linking to admin controllers
+Because admin controllers have no knowledge of the base prefix, care should be taken to use the `WebAppPathResolver` with the correct prefix for generating the right links.
+
+There are 3 ways to do this:
+
+* using the *adminWeb* prefix in the `WebAppPathResolver` bean: `webapp.path("@adminWeb:/demo/page")`
+* using the *adminWeb* prefix directly in any Thymeleaf url: `th:href="@{@adminWeb:/demo/page}"`
+* using the `AdminWeb` bean to generate paths or redirect: `adminWeb.redirect("/demo/page")`
+
+NOTE: AdminWebModule registers the *adminWeb* link prefix that represents the admin web root path.
+
+== Adding web interceptors
+
+Additional interceptors for admin controllers can easily be registered by providing an `AdminWebConfigurerAdapter` bean.

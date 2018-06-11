@@ -1,0 +1,23 @@
+= Customizing the login page
+
+The default login page can be customized by setting the property *adminWebModule.login.template* to the Thymeleaf template you wish to render.
+The login controller provides the following model attributes that can be used to customize the template:
+
+|===
+
+|Attribute |Type |Description
+
+|*isLoginPage*
+|`Boolean`
+|Always `true`.
+This attribute can be used in the wrapping template to determine if the login page is being requested.
+
+|*isRememberMeEnabled*
+|`Boolean`
+|Can be used to determine if a remember me checkbox should be rendered.
+
+|*localeOptions*
+|`List<Locale>`
+|Lists the different locale options that should be offered on the login page.
+
+|===
