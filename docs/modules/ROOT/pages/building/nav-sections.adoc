@@ -8,7 +8,7 @@ The same `AdminMenu` is used to render the different nav components on the layou
 * left-hand navigation
 * breadcrumb
 
-All nav structures are built using a `NavComponentBuilder` from the {bootstrap-ui-module-url}[BootstrapUiModule] and support all options like HTML attributes, icons and custom `ViewElements`.
+All nav structures are built using a `NavComponentBuilder` from the {url-BootstrapUiModule}[BootstrapUiModule] and support all options like HTML attributes, icons and custom `ViewElements`.
 
 == Default AdminMenu structure
 By default the `AdminMenu` contains 3 items:

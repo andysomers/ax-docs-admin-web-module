@@ -4,4 +4,4 @@
 == 3.0.1.RELEASE
 
 * `EntityAdminMenu` and `EntityAdminMenuEvent` have been deprecated and will be removed in the future
-** these classes were almost solely used in the context of link:{entity-module-url}[EntityModule] and did not belong in AdminWebModule
+** these classes were almost solely used in the context of link:{url-EntityModule}[EntityModule] and did not belong in AdminWebModule

@@ -3,13 +3,13 @@
 == Registering admin controllers
 
 AdminWebModule will scan for all beans annoted with `@AdminWebController`.
-This is a replacement for the default `@Controller` annotation and marks the beans as controllers that should run under the {module-name} root path.
+This is a replacement for the default `@Controller` annotation and marks the beans as controllers that should run under the AdminWebModule root path.
 
 All request mappings that the controller declares will be prefixed with the admin root path, and will be secured behind it.
 The default admin web template will be applied to the controller unless it explicitly declares a `@Template` annotation.
 
 NOTE: `@AdminWebController` also declared a Spring condition.
-Beans annotated with `@AdminWebController` will only get created if {module-name} is present.
+Beans annotated with `@AdminWebController` will only get created if AdminWebModule is present.
 
 The following code snippet illustrates creating a simple admin controller:
 
