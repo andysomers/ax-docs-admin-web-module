@@ -11,6 +11,7 @@
 ** xref:customizing/security.adoc[Security & permissions]
 ** xref:customizing/default-template.adoc[Default layout template]
 ** xref:customizing/login-page.adoc[Login page]
+** xref:customizing/user-context-menu.adoc[User context menu]
 
 * xref:building/admin-web-controllers.adoc[Building an Administration UI]
 ** xref:building/admin-web-controllers.adoc[Creating admin web controllers]
