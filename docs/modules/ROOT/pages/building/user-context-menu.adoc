@@ -1,0 +1,90 @@
+= User context menu
+
+The _user context menu_ usually contains the menu items specific to the logged on user.
+In the default layout it is the rightmost menu item in the top navigation and it contains only a _Logout_ link.
+
+image::user-context-menu.png[The default user context menu expanded.]
+
+== Adding menu items
+
+The user context menu can be customized by intercepting the `AdminMenuEvent` and customizing the `UserContextAdminMenuGroup.MENU_PATH` group (`/user-context`).
+
+.Adding a custom link to the user context menu
+[source,java,indent=0]
+----
+@EventListener
+public void buildUserContextMenu( AdminMenuEvent menu ) {
+    menu.item( UserContextAdminMenuGroup.MENU_PATH + "/profile" )
+        .title( "Your profile" )
+        .url( "@adminWeb:/my/controller" );
+}
+----
+
+See the documentation on xref:building/nav-sections.adoc[customizing the nav sections] for more information.
+
+== Setting a display name and avatar
+
+The user context menu by default shows a user icon followed by the name of the current principal.
+A custom display name and optional thumbnail url can be set by intercepting the custom `UserContextAdminMenuGroup` event.
+
+A thumbnail will be rendered as an avatar for the logged on user.
+
+`UserContextAdminMenuGroup` has the following properties:
+
+[cols="1,3,1", options="header"]
+|===
+
+| Property
+| Description
+| Default value
+
+| `displayName`
+| The text to show on the menu item.
+If the name is empty, no text will be rendered.
+| current principal name
+
+| `thumbnailUrl`
+| The image to show on the menu item.
+If the url is empty, a user icon is rendered instead.
+| none
+
+|===
+
+.Example manually setting a display name and avatar
+[source,java,indent=0]
+----
+@EventListener
+public void registerDefaultUserContextAdminMenuItem( UserContextAdminMenuGroup userContextAdminMenuGroup ) {
+    // the original event is prefilled with the current principal name
+    if ( "admin".equals( userContextAdminMenuGroup.getDisplayName() ) ) {
+        userContextAdminMenuGroup.setDisplayName( "Administrator" );
+        userContextAdminMenuGroup.setThumbnailUrl( "http://www.gravatar.com/avatar/73543542128f5a067ffc34305eefe48a" );
+    }
+}
+----
+
+The configured `UserContextAdminMenuGroup` is also added to the resulting `Menu` item under the `UserContextAdminMenuGroup.ATTRIBUTE` attribute.
+
+NOTE: Other modules, for example xref:user-module::index.adoc[UserModule], automatically integrate with Admin web to set display names and avatar.
+
+== CSS styling
+
+The default user context menu adds the following CSS classes:
+
+
+[cols="1,2"]
+|===
+
+| CSS class
+| Description
+
+| `admin-nav-user-context`
+| Added to the main menu item (`li` element).
+
+| `with-thumbnail`
+| Added to the main menu item (`li` element), if a `thumbnailUrl` was set (and an avatar is rendered).
+
+| `admin-nav-user-context-thumbnail`
+| Added to `img` element of the avatar.
+
+|===

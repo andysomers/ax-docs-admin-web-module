@@ -14,7 +14,7 @@ All nav structures are built using a `NavComponentBuilder` from the {url-Bootstr
 By default the `AdminMenu` contains 3 items:
 
 * the root item (*/*)
-* the user context item group (*/user-context*)
+* the xref:building/user-context-menu.adoc[user context] item group (*/user-context*)
 ** this group is rendered only on the right-hand side of the top navigation
 * the logout link as member of the user-context (*/user-context/logout*)
 
