@@ -10,3 +10,27 @@ This means the template should take both authorized and non-authorized authentic
 The default template is an implementation of `AdminWebLayoutTemplate`.
 If you only want a custom view template file (eg. Thymeleaf) you can reuse the `AdminWebLayoutTemplate` class and create a new bean with custom name and template file.
 The default web resources and page structure (menus) will still be created.
+
+== Adding custom web resources
+
+When the `AdminWebLayoutTemplate` is build, a `BuildTemplateWebResourcesEvent` is published which allows to customize the registered web resources.
+To register custom web resources (for example to xref:guides:customizing-the-logo.adoc[customize the default logo]), you can use an `@EventListener` to catch and modify the event.
+
+[source,java,indent=0]
+----
+@Configuration
+@RequiredArgsConstructor
+public class AdminUiConfiguration
+{
+	@EventListener(condition = "#template.templateName=='adminWeb'") # <1>
+	public void registerCustomCss( BuildTemplateWebResourcesEvent template ) {
+		template.add( new WebResource( WebResource.CSS,
+		                               "adminweb-layout-overrides",
+		                               "/static/demo/css/layout-admin-web.css", # <2>
+		                               WebResource.VIEWS ) );
+	}
+}
+----
+<1> A `WebResource` will be registered for the admin web template.
+<2> The path of the `WebResource` file is relative to the `resources/views` directory.
+This means that the file is located in `resources/views/demo/css/layout-admin-web.css`.

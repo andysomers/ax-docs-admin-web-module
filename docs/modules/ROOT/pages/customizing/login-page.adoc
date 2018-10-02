@@ -21,3 +21,6 @@ This attribute can be used in the wrapping template to determine if the login pa
 |Lists the different locale options that should be offered on the login page.
 
 |===
+
+The default template also shows the application logo.
+See xref:guides:customizing-the-logo.adoc[customizing the logo] for more information on how to change the logo for your application.

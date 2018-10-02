@@ -5,6 +5,7 @@ Customizing the logo is done by overriding the default AdminWeb css.
 == Overriding the css classes
 
 The logo is presented in two positions:
+
 - the 'Log In' page
 - the top navigation bar in the secured administrative section
 
