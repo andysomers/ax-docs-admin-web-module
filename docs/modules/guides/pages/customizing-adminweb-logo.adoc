@@ -1,0 +1,58 @@
+= Customizing the AdminWeb logo
+
+Customizing the logo is done by overriding the default AdminWeb css.
+
+== Overriding the css classes
+
+The logo is presented in two positions:
+- the 'Log In' page
+- the top navigation bar in the secured administrative section
+
+To override the logo in those positions, you can customize the following css classes
+[source,css,indent=0]
+----
+.form-signin .page-header {
+    background: url("../images/across-logo.svg") no-repeat center top; # <1>
+    padding-top: 75px;
+    background-size: 75px 75px
+}
+
+.navbar.navbar-default .navbar-header {
+    background: url("../images/across-logo.svg") no-repeat left center
+}
+
+.navbar-header {
+    background: url("../images/across-logo.svg") no-repeat left center;
+    padding-left: 20px;
+    background-size: 40px
+}
+----
+<1> Set a custom url for the background image.
+This url contains the path to the new logo.
+
+In the example, the path to the image is a relative path.
+Across will by default serve resources from the `resources/views/static` directory.
+See the xref:across:across-web:configuration/static-resources.adoc[reference documentation] for more information on static resources.
+
+== Adding the css file
+
+To ensure that your css is picked up, you need to register it when the `adminWeb` template is build.
+
+[source,java,indent=0]
+----
+@Configuration
+@RequiredArgsConstructor
+public class AdminUiConfiguration
+{
+	@EventListener(condition = "#template.templateName=='adminWeb'") # <1>
+	public void registerCustomCss( BuildTemplateWebResourcesEvent template ) {
+		template.add( new WebResource( WebResource.CSS,
+		                               "adminweb-layout-overrides",
+		                               "/static/demo/css/layout-admin-web.css", # <2>
+		                               WebResource.VIEWS ) );
+	}
+}
+----
+<1> The css should be added when the template for `adminWeb` is build.
+<2> The path of the css file is relative to the `resources/views` directory.
+This means that the file is located in `resources/views/demo/css/layout-admin-web.css`.
