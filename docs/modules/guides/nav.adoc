@@ -1,2 +1,2 @@
 * Guides & how-tos
-** xref:customizing-adminweb-logo.adoc[Customizing the logo]
+** xref:customizing-the-logo.adoc[Customizing the logo]
