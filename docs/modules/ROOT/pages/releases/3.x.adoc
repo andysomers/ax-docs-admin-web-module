@@ -1,7 +1,7 @@
 = 3.x.x release notes
 
 [#3-1-0]
-== 3.1.0-SNAPSHOT
+== 3.1.0.RELEASE
 
 * the xref:building/user-context-menu.adoc[user context menu] button can be more easily customized and supports an avatar image
 

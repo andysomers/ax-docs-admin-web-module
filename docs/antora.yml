@@ -1,5 +1,5 @@
 name: admin-web-module
 title: "Module: Admin Web"
-version: 3.1.0-dev
+version: 3.1.0
 nav:
 - modules/ROOT/nav.adoc
