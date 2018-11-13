@@ -15,6 +15,7 @@
 * xref:building/admin-web-controllers.adoc[Building an Administration UI]
 ** xref:building/admin-web-controllers.adoc[Creating admin web controllers]
 ** xref:building/nav-sections.adoc[Customizing the nav sections]
+** xref:building/user-context-menu.adoc[User context menu]
 ** xref:building/page-content-structure.adoc[Default page structures]
 
 * xref:developer-tools.adoc[Developer tools]
