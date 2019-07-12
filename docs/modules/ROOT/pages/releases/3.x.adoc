@@ -4,7 +4,7 @@
 == 3.1.1.RELEASE
 
 * switch to webjars for dependencies (toastr)
-* updated to the xref:across:across-web:web-views/web-resources.adoc[new web resource] approach
+* switched to the xref:2.1.4-dev@across:across-web:web-views/web-resources.adoc[new web resource] approach
 * rename thtml files to html files
 
 [#3-1-0]
