@@ -4,6 +4,14 @@
 == 3.2.0.RELEASE
 * The text shown on the default login page can be changed by using xref:customizing/message-codes.adoc[message codes].
 
+
+[#3-1-1]
+== 3.1.1.RELEASE
+
+* switch to webjars for dependencies (toastr)
+* switched to the xref:across:across-web:web-views/web-resources.adoc[new web resource] approach
+* internal refactoring: renamed embedded `.thtml` files to `.html` files
+
 [#3-1-0]
 == 3.1.0.RELEASE
 
