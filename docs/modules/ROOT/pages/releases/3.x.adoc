@@ -1,5 +1,9 @@
 = 3.x.x release notes
 
+[#3-2-0]
+== 3.2.0.RELEASE
+* The text shown on the default login page can be changed by using xref:customizing/message-codes.adoc[message codes].
+
 [#3-1-0]
 == 3.1.0.RELEASE
 

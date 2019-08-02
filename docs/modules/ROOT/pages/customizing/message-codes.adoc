@@ -1,0 +1,25 @@
+= Message codes
+
+Labels are resolved using a message code hierarchy.
+Simply define one or more message sources specifying the properties you want.
+
+== Default message codes
+The following is a copy of **AdminWebModule.properties** which contains the default message codes for AdminWebModule.
+You can customize the text on the dashboard and login page of admin web.
+
+```
+AdminWebModule.dashboard.welcome=Welcome to the <strong>{0}</strong> administration section.
+
+AdminWebModule.login.feedback.invalidUsernameOrPassword=Invalid username or password.
+AdminWebModule.login.feedback.logoutSuccess=You have been signed out.
+AdminWebModule.login.text=Please sign in.
+AdminWebModule.login.form.username=Username
+AdminWebModule.login.form.username[placeholder]=Username
+AdminWebModule.login.form.username[help]=
+AdminWebModule.login.form.password=Password
+AdminWebModule.login.form.password[placeholder]=Password
+AdminWebModule.login.form.password[help]=
+AdminWebModule.login.form.remember-me=Remember me
+AdminWebModule.login.form.submit=Sign in
+```
+
