@@ -47,10 +47,12 @@ public class AdminUiConfiguration
 {
 	@EventListener(condition = "#template.templateName=='adminWeb'") # <1>
 	public void registerCustomCss( BuildTemplateWebResourcesEvent template ) {
-		template.add( new WebResource( WebResource.CSS,
-		                               "adminweb-layout-overrides",
-		                               "/static/demo/css/layout-admin-web.css", # <2>
-		                               WebResource.VIEWS ) );
+		template.applyResourceRules(
+                	WebResourceRule.add( css( "@static:/static/demo/css/adminweb-logo.css" ) ) # <2>
+                        	.withKey( AdminWebWebResources.NAME + "-logo" )
+                        	.replaceIfPresent( false )
+	                        .toBucket( CSS )
+        	);
 	}
 }
 ----
